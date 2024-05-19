@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ViteAspNetCoreTest</title>
+</head>
+<body>
+<header>
+    <nav class="border-bottom box-shadow">
+        <div>
+            <a class="navbar-brand" asp-area="" asp-page="/Index">ViteAspNetCoreTest</a>
+            <div>
+                <ul>
+                    <li>
+                        <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" asp-area="" asp-page="/Privacy">Privacy</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" asp-controller="Home" asp-action="Contacts">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div>
+    <main role="main" id="app">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer">
+    <div>
+        &copy; 2023 - ViteAspNetCoreTest - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    </div>
+</footer>
+
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
