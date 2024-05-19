@@ -1,9 +1,11 @@
+using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ViteAspNetCoreTest.Controllers
+namespace ViteAspNetCoreTest.api.Controllers.v1._0
 {
     [ApiController]
-    [Route("[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -19,6 +21,7 @@ namespace ViteAspNetCoreTest.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
+        [MapToApiVersion("1.0")]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
