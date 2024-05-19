@@ -1,10 +1,21 @@
-﻿@page
+﻿@page "/"
 @model ViteAspNetCoreTest.Pages.IndexModel
 @{
     ViewData["Title"] = "Home page";
+    Layout = null;
 }
 
-<div>
-    <h1>Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - ViteNetDemo</title>
+    <link rel="stylesheet" vite-href="~/main.ts" asp-append-version="true" />
+</head>
+<body>
+    <div id="app"></div>
+    <script type="module" vite-src="~/main.ts"></script>
+</body>
+</html>

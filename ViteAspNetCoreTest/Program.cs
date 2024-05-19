@@ -1,5 +1,6 @@
 using Asp.Versioning.ApiExplorer;
 using System.Text.Json.Serialization;
+using Vite.AspNetCore;
 using ViteAspNetCoreTest.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +26,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.AddViteServices(options =>
+{
+    options.Server.AutoRun = true;
+    options.Server.Https = true;
+    options.Server.PackageDirectory = "ClientApp";
+});
 
 var app = builder.Build();
 
@@ -46,6 +53,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseStaticFiles();
+
 app.UseRouting();
 
 app.UseAuthorization();
@@ -56,5 +65,22 @@ app.MapControllerRoute(
 
 app.MapControllers();
 app.MapRazorPages();
+
+// When page does not exist in Admin area, fallback to Admin/Index
+app.MapFallbackToPage("/admin/{*catchall:nonfile}", "/Admin/Index");
+// Otherwise fallback to Index but not for API routes
+app.MapFallbackToPage("{*path:regex(^(?!api/).*$):nonfile}", "/Index");
+
+// Use the Vite Development Server when the environment is Development.
+if (app.Environment.IsDevelopment())
+{
+    // WebSockets support is required for HMR (hot module reload).
+    // Uncomment the following line if your pipeline doesn't contain it.
+    app.UseWebSockets();
+    // Enable all required features to use the Vite Development Server.
+    // Pass true if you want to use the integrated middleware.
+    app.UseViteDevelopmentServer(true);
+}
+
 
 app.Run();
