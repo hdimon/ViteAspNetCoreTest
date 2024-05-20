@@ -1,0 +1,22 @@
+{
+  "configurations": [
+      {
+          "name": ".NET Core Launch (web)",
+          "type": "coreclr",
+          "request": "launch",
+          "preLaunchTask": "dotnet: build",
+          "program": "${workspaceFolder}/ViteAspNetCoreTest/bin/Debug/net8.0/ViteAspNetCoreTest.exe",
+          "args": [],
+          "console": "externalTerminal",
+          "cwd": "${workspaceFolder}/ViteAspNetCoreTest",
+          "stopAtEntry": false,
+          "serverReadyAction": {
+            "action": "openExternally",
+            "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+          },
+          "env": {
+            "ASPNETCORE_ENVIRONMENT": "Development"
+          },
+        }
+  ]
+}
