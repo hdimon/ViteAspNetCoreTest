@@ -65,7 +65,7 @@ export default defineConfig(async () => {
                 input: {
                     // Specify the entry points and their output paths
                     main: 'src/main.ts',
-                    //'admin/admin-main': 'src/admin/admin-main.ts',
+                    'admin/admin-main': 'src/admin/admin-main.ts',
                 },
                 output: {
                     // Save entry files to the appropriate folder

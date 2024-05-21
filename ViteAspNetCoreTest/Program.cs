@@ -1,6 +1,7 @@
 using Asp.Versioning.ApiExplorer;
 using System.Text.Json.Serialization;
 using Vite.AspNetCore;
+using ViteAspNetCoreTest.Authentication;
 using ViteAspNetCoreTest.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,7 +26,10 @@ builder.Services.AddApiVersioning(options =>
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
 builder.Services.AddControllersWithViews();
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options =>
+{
+    options.Conventions.AuthorizeFolder("/Admin");
+});
 builder.Services.AddViteServices(options =>
 {
     options.Server.AutoRun = true;
@@ -52,6 +56,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseProtectAdminArea();
 
 app.UseStaticFiles();
 
@@ -81,6 +87,5 @@ if (app.Environment.IsDevelopment())
     // Pass true if you want to use the integrated middleware.
     app.UseViteDevelopmentServer(true);
 }
-
 
 app.Run();
