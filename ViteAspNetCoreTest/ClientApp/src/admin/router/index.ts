@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import AboutView from "../views/AboutView.vue";
+import NotFound from "../views/NotFound.vue";
 
 function getPath(path?: string) {
   return "/admin" + path;
@@ -23,6 +24,14 @@ const router = createRouter({
       component: AboutView,
       meta: {
         title: "About"
+      }
+    },
+    {
+      path: getPath("/:pathMatch(.*)*"),
+      name: "NotFound",
+      component: NotFound,
+      meta: {
+        title: "Not found"
       }
     }
   ]
