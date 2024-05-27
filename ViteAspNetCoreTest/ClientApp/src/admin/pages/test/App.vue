@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
+import HelloWorld from "../../../components/HelloWorld.vue";
 </script>
 
 <template>
@@ -14,20 +13,18 @@ import HelloWorld from "./components/HelloWorld.vue";
     />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="This is a test page in admin area." />
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
         <a href="/privacy">Privacy</a>
         <a href="/admin">Admin</a>
-        <RouterLink to="/test1">Test 1</RouterLink>
+        <a href="/test1">Test 1</a>
         <a href="/test2">Test 2</a>
       </nav>
     </div>
   </header>
-
-  <RouterView />
 </template>
 
 <style scoped>

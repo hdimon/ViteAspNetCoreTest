@@ -1,6 +1,11 @@
 ﻿@{
     ViewBag.Title = "Contacts";
-    Layout = "_Layout";
 }
 
-<h2>Contacts</h2>
+@section AppMainStyles {
+    <link rel="stylesheet" vite-href="~/pages/home/contacts/main.ts" asp-append-version="true" />
+}
+
+@section AppMainScripts {
+    <script type="module" vite-src="~/pages/home/contacts/main.ts"></script>
+}

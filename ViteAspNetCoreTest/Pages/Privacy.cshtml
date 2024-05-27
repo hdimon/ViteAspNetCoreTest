@@ -3,6 +3,11 @@
 @{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+@section AppMainStyles {
+    <link rel="stylesheet" vite-href="~/pages/privacy/main.ts" asp-append-version="true" />
+}
+
+@section AppMainScripts {
+    <script type="module" vite-src="~/pages/privacy/main.ts"></script>
+}

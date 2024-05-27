@@ -13,4 +13,8 @@
     <PackageReference Include="Vite.AspNetCore" Version="2.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ClientApp\src\pages\privacy\" />
+  </ItemGroup>
+
 </Project>

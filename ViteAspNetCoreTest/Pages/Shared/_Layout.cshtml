@@ -1,43 +1,21 @@
-﻿<!DOCTYPE html>
+﻿@addTagHelper *, Vite.AspNetCore
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - ViteAspNetCoreTest</title>
+    @*@await RenderSectionAsync("AppMainStyles", required: false)*@
+    @{
+        IgnoreSection("AppMainStyles");
+    }
 </head>
 <body>
-<header>
-    <nav class="border-bottom box-shadow">
-        <div>
-            <a class="navbar-brand" asp-area="" asp-page="/Index">ViteAspNetCoreTest</a>
-            <div>
-                <ul>
-                    <li>
-                        <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
-                    </li>
-                    <li>
-                        <a class="nav-link" asp-area="" asp-page="/Privacy">Privacy</a>
-                    </li>
-                    <li>
-                        <a class="nav-link" asp-controller="Home" asp-action="Contacts">Contacts</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-<div>
-    <main role="main" id="app">
-        @RenderBody()
-    </main>
+@RenderBody()
+<div id="app">
 </div>
-
-<footer class="border-top footer">
-    <div>
-        &copy; 2023 - ViteAspNetCoreTest - <a asp-area="" asp-page="/Privacy">Privacy</a>
-    </div>
-</footer>
-
-@await RenderSectionAsync("Scripts", required: false)
+@await RenderSectionAsync("AppMainScripts", required: false)
 </body>
 </html>

@@ -2,20 +2,12 @@
 @model ViteAspNetCoreTest.Pages.Admin.IndexModel
 @{
     ViewData["Title"] = "Admin page";
-    Layout = null;
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"] - ViteAspNetCoreTest</title>
-    <link rel="stylesheet" vite-href="~/admin/admin-main.ts" asp-append-version="true" />
-</head>
-<body>
-<div id="app"></div>
-<script type="module" vite-src="~/admin/admin-main.ts"></script>
-</body>
-</html>
+@section AppMainStyles {
+    <link rel="stylesheet" vite-href="~/admin/main.ts" asp-append-version="true" />
+}
+
+@section AppMainScripts {
+    <script type="module" vite-src="~/admin/main.ts"></script>
+}
