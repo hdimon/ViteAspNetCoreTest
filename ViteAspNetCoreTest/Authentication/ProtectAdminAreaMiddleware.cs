@@ -11,7 +11,7 @@ public class ProtectAdminAreaMiddleware
 
     public async Task Invoke(HttpContext context)
     {
-        if (context.Request.Path.StartsWithSegments("/js/admin"))
+        /*if (context.Request.Path.StartsWithSegments("/js/admin"))
         {
             var user = context.User;
 
@@ -20,7 +20,7 @@ public class ProtectAdminAreaMiddleware
                 context.Response.StatusCode = StatusCodes.Status403Forbidden;
                 return;
             }
-        }
+        }*/
 
         await _next(context);
     }

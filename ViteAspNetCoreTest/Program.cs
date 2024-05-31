@@ -28,7 +28,7 @@ builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages(options =>
 {
-    options.Conventions.AuthorizeFolder("/Admin");
+    //options.Conventions.AuthorizeFolder("/Admin");
 });
 builder.Services.AddViteServices(options =>
 {
@@ -78,7 +78,7 @@ app.MapFallbackToPage("/admin/{*catchall:nonfile}", "/Admin/Index");
 app.MapFallbackToPage("{*path:regex(^(?!api/).*$):nonfile}", "/Index");
 
 // Use the Vite Development Server when the environment is Development.
-if (app.Environment.IsDevelopment())
+if (!app.Environment.IsDevelopment())
 {
     // WebSockets support is required for HMR (hot module reload).
     // Uncomment the following line if your pipeline doesn't contain it.

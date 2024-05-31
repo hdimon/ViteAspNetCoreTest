@@ -129,7 +129,7 @@ export default defineConfig(async () => {
     plugins: [
       vue(),
       vueJsx(),
-      cssInjectedByJsPlugin({ relativeCSSInjection: true })
+      //cssInjectedByJsPlugin({ relativeCSSInjection: true })
     ],
     resolve: {
       alias: {
