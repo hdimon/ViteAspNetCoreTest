@@ -5,5 +5,5 @@
 /.vs
 /**/bin
 /**/obj
-/**/*.csproj.user
 /ViteAspNetCoreTest/wwwroot
+/**/*.user

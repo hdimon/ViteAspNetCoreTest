@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "../components/HelloWorld.vue";
+import { RouterView } from "vue-router";
+import HelloWorld from "@/components/HelloWorld.vue";
+import NavMenu from "@/admin/components/NavMenu.vue";
 </script>
 
 <template>
@@ -17,13 +18,7 @@ import HelloWorld from "../components/HelloWorld.vue";
       <HelloWorld msg="You did it!" />
       <div>Admin page</div>
 
-      <nav>
-        <a href="/">Home</a>
-        <RouterLink to="/admin">Admin home</RouterLink>
-        <RouterLink to="/admin/about">Admin about</RouterLink>
-        <RouterLink to="/admin/test1">Admin Test 1</RouterLink>
-        <a href="/admin/test2">Admin Test 2</a>
-      </nav>
+      <NavMenu :is-spa="true" />
     </div>
   </header>
 
@@ -41,31 +36,6 @@ header {
   margin: 0 auto 2rem;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
 @media (min-width: 1024px) {
   header {
     display: flex;
@@ -81,15 +51,6 @@ nav a:first-of-type {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
   }
 }
 </style>
