@@ -6,6 +6,7 @@ import fs from "fs";
 import path from "path";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
+import { quasar, transformAssetUrls } from "@quasar/vite-plugin";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 // Get base folder for certificates.
@@ -127,8 +128,13 @@ export default defineConfig(async () => {
       include: []
     },
     plugins: [
-      vue(),
+      vue({
+        template: { transformAssetUrls }
+      }),
       vueJsx(),
+      quasar({
+        sassVariables: "src/assets/quasar-variables.sass"
+      }),
       cssInjectedByJsPlugin({ relativeCSSInjection: true })
     ],
     resolve: {

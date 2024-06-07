@@ -1,0 +1,13 @@
+﻿@page
+@model ViteAspNetCoreTest.Pages.QuasarModel
+@{
+    ViewData["Title"] = "Quasar test";
+}
+
+@section AppMainStyles {
+    <link rel="stylesheet" vite-href="~/pages/quasar/main.ts" asp-append-version="true" />
+}
+
+@section AppMainScripts {
+    <script type="module" vite-src="~/pages/quasar/main.ts"></script>
+}

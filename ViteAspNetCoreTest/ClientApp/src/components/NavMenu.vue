@@ -21,6 +21,7 @@ defineProps<{
     <a v-else href="/test1">Test 1</a>
 
     <a href="/test2">Test 2</a>
+    <a href="/quasar">Quasar</a>
   </nav>
 </template>
 
